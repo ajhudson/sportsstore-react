@@ -20,6 +20,7 @@ function ModalButton(props) {
             <Modal  isOpen={ modalIsOpen }
                     contentLabel='Testy Modal'>
                 <p>This is an example of a modal window</p>
+                <button onClick={ closeTheModal }>Click here to close the modal</button>
             </Modal>
         </>
     );

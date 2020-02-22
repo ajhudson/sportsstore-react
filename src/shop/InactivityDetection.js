@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 import IdleTimer from 'react-idle-timer';
 
-
 export class InactivityDetection extends Component {
 
     constructor(props) {
