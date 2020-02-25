@@ -1,36 +1,33 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
-export const CartSummary = (props) => {
+export class CartSummary extends Component {
 
-    console.log(props);
-
-    /*
-    const getSummary = () => {
-        if (cartItems.length > 0) {
-            return <span>{ cartItems } item(s), £{ cartPrice.toFixed(2) } </span>
+    getSummary = () => {
+        if (this.props.cartItems > 0) {
+            return <span>
+                { this.props.cartItems } item(s), 
+                ${ this.props.cartPrice.toFixed(2)}
+            </span>
         } else {
-            return <span>Your cart: (empty)</span>
-        }
-    };
+            return <span>Your cart: (empty) </span>
+        }        
+    }
 
-    const getLinkClasses = () =>  {
-        return `btn btn-sm bg-dark text-white ${cartItems === 0 ? "disabled" : ""}`;
-    };
+    getLinkClasses = () => {
+        return `btn btn-sm bg-dark text-white 
+            ${ this.props.cartItems === 0 ? "disabled": ""}`;
+    }
 
-    return (
-        <div className='float-right'>
+    render() {
+        return <div className="float-right">
             <small>
-                { getSummary() }
-                <Link className={ getLinkClasses() } to='/shop/cart'>
-                    <i className='fa fa-shopping-cart'></i>
-                </Link>
+                 { this.getSummary() }            
+                <Link className={ this.getLinkClasses() } 
+                        to="/shop/cart">
+                    <i className="fa fa-shopping-cart"></i>
+                </Link>                
             </small>
         </div>
-    );
-    */
-
-    return(<></>);
-};
-
-export default CartSummary;
+    }
+}

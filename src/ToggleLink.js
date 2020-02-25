@@ -1,23 +1,22 @@
-import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Route, Link } from "react-router-dom";
 
-const ToggleLink = props => {
+export class ToggleLink extends Component {
 
-    return (
-        <Route  path={props.to} 
-                exact={props.exact}
+    render() {
+        return <Route path={ this.props.to } exact={ this.props.exact }
                 children={ routeProps => {
-                        const baseClasses = props.className || 'm-2 btn btn-block';
-                        const activeClass = props.activeClass || 'btn-primary';
-                        const inactiveClass = props.inactiveClass || 'btn-secondary';
-                        const combinedClasses = `${baseClasses} ${routeProps.match ? activeClass : inactiveClass}`;
+            
+            const baseClasses = this.props.className || "m-2 btn btn-block";
+            const activeClass = this.props.activeClass || "btn-primary";
+            const inActiveClass = this.props.inActiveClass || "btn-secondary"
 
-                        return <Link to={props.to} className={combinedClasses}>
-                            {props.children}
-                        </Link>
-                    }
-                }></Route>
-    );
-};  
-
-export default ToggleLink;
+            const combinedClasses = 
+                `${baseClasses} ${routeProps.match ? activeClass : inActiveClass}`
+            
+            return <Link to={ this.props.to } className={ combinedClasses }>
+                        { this.props.children }
+                    </Link>
+         }} />
+    }
+}
